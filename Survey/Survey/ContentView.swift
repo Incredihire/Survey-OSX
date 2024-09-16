@@ -1,59 +1,26 @@
-//
-//  ContentView.swift
-//  Survey
-//
-//  Created by Daryna Borzovets on 9/16/24.
-//
-
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
+        Text("Hello World")
+            .font(.largeTitle)
+            .padding()
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+// Define the preview for ContentView
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ContentView()
+                .previewDevice("iPhone 14") // Specify the device model here
+                .previewDisplayName("iPhone 14") // Optional: Add a display name for the preview
+                .previewLayout(.device) // Ensure the preview is shown in device shape
+
+            ContentView()
+                .previewDevice("iPad Pro (12.9-inch) (6th generation)") // Preview on iPad
+                .previewDisplayName("iPad Pro") // Optional: Add a display name for the preview
+                .previewLayout(.device) // Ensure the preview is shown in device shape
+        }
+    }
 }

@@ -1,10 +1,3 @@
-//
-//  SurveyApp.swift
-//  Survey
-//
-//  Created by Daryna Borzovets on 9/16/24.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -25,7 +18,7 @@ struct SurveyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView()  // Ensure ContentView is being used
         }
         .modelContainer(sharedModelContainer)
     }

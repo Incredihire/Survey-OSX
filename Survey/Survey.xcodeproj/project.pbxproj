@@ -97,11 +97,11 @@
 		C97869F02C98998900C7178A /* Survey */ = {
 			isa = PBXGroup;
 			children = (
-				C97869F12C98998900C7178A /* SurveyApp.swift */,
 				C97869F32C98998900C7178A /* ContentView.swift */,
-				C97869F52C98998900C7178A /* Item.swift */,
+				C97869F12C98998900C7178A /* SurveyApp.swift */,
 				C97869F72C98998A00C7178A /* Assets.xcassets */,
 				C97869FC2C98998A00C7178A /* Survey.entitlements */,
+				C97869F52C98998900C7178A /* Item.swift */,
 				C97869F92C98998A00C7178A /* Preview Content */,
 			);
 			path = Survey;
@@ -431,7 +431,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Survey/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Survey;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -440,8 +442,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Incredihire-LLC.Survey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -457,7 +462,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Survey/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Survey;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -466,8 +473,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Incredihire-LLC.Survey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
