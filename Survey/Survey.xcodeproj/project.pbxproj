@@ -220,6 +220,9 @@
 				Base,
 			);
 			mainGroup = C97869E52C98998900C7178A;
+			packageReferences = (
+				C9BBCCF32C98BC60000D71A0 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+			);
 			productRefGroup = C97869EF2C98998900C7178A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -589,6 +592,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C9BBCCF32C98BC60000D71A0 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = C97869E62C98998900C7178A /* Project object */;
 }

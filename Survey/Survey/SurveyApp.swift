@@ -18,7 +18,7 @@ struct SurveyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()  // Ensure ContentView is being used
+            ContentView()
         }
         .modelContainer(sharedModelContainer)
     }
