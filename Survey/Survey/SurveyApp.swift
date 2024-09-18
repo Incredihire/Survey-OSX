@@ -12,7 +12,7 @@ import SwiftData
 struct SurveyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Item.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -30,3 +30,4 @@ struct SurveyApp: App {
         .modelContainer(sharedModelContainer)
     }
 }
+
