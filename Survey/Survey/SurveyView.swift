@@ -8,7 +8,7 @@ struct SurveyView: View {
             Text("How was your day?")
                 .font(.title)
                 .padding()
-            
+
             // Buttons arranged in two rows
             VStack(spacing: 10) {
                 HStack {
@@ -72,4 +72,3 @@ struct SurveyView_Previews: PreviewProvider {
         SurveyView()
     }
 }
-

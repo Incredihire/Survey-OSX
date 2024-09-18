@@ -2,7 +2,7 @@ import XCTest
 @testable import Survey
 
 class MyFeatureTests: XCTestCase {
-    
+
     func testExample() {
         // Arrange
         let expected = 5
@@ -13,6 +13,6 @@ class MyFeatureTests: XCTestCase {
         // Assert
         XCTAssertEqual(expected, result, "The addition result should be \(expected).")
     }
-    
+
     // Add more tests here
 }
