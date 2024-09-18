@@ -1,10 +1,3 @@
-//
-//  SurveyApp.swift
-//  Survey
-//
-//  Created by Daryna Borzovets on 9/17/24.
-//
-
 import SwiftUI
 import SwiftData
 

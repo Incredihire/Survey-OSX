@@ -1,10 +1,3 @@
-//
-//  SurveyTests.swift
-//  SurveyTests
-//
-//  Created by Daryna Borzovets on 9/17/24.
-//
-
 import XCTest
 @testable import Survey
 

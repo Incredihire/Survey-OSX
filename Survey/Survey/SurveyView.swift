@@ -14,4 +14,3 @@ struct HelloWorldView_Previews: PreviewProvider {
         SurveyView()
     }
 }
-
