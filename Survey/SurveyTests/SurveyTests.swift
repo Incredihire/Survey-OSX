@@ -1,10 +1,3 @@
-//
-//  SurveyTests.swift
-//  SurveyTests
-//
-//  Created by Daryna Borzovets on 9/17/24.
-//
-
 import XCTest
 @testable import Survey
 
@@ -15,7 +8,7 @@ final class SurveyTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        // Teardown code here. This method is called after each test method in the class.
+        // Teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testExample() throws {
