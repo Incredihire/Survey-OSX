@@ -27,7 +27,6 @@ struct SurveyView: View {
                     }
                     .buttonStyle(CustomButtonStyle(color: .blue))
                 }
-                
                 HStack {
                     Button("Good") {
                         self.selectedOption = "Good"
@@ -41,7 +40,7 @@ struct SurveyView: View {
                 }
             }
             .padding(.horizontal)
-            
+
             // Display the selected option
             if let selectedOption = selectedOption {
                 Text("You selected: \(selectedOption)")
@@ -56,7 +55,7 @@ struct SurveyView: View {
 // Custom button style for colored buttons
 struct CustomButtonStyle: ButtonStyle {
     var color: Color
-    
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
