@@ -23,10 +23,12 @@ class AuthViewModel: ObservableObject {
     }
 
     private func saveCredentials(username: String, password: String) {
+        guard let passwordData = password.data(using: .utf8) else { return }
+        
         let credentials: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: username,
-            kSecValueData as String: password.data(using: .utf8)!
+            kSecValueData as String: passwordData
         ]
 
         // Delete any existing credentials
@@ -44,7 +46,7 @@ class AuthViewModel: ObservableObject {
             kSecMatchLimit as String: kSecMatchLimitOne
         ]
 
-        var dataTypeRef: AnyObject? = nil
+        var dataTypeRef: AnyObject?
         let status: OSStatus = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
 
         if status == errSecSuccess {

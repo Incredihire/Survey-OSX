@@ -19,25 +19,26 @@ struct LoginView: View {
                 .padding()
 
             Button(action: {
-                authViewModel.login { success in
+                // Explicitly specify the login parameters
+                authViewModel.login(completion: { success in
                     if success {
                         // Handle successful login, you may want to navigate to the survey view
                     } else {
                         // Handle login failure (show an alert, for example)
                     }
-                }
+                })
             }) {
                 Text("Log In")
                     .fontWeight(.semibold)
                     .font(.headline)
-                    .padding(.horizontal, 20) // Adjust horizontal padding for width
-                    .padding(.vertical, 10) // Reduced vertical padding
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(8)
                     .shadow(color: Color.blue.opacity(0.5), radius: 5)
             }
-            .frame(maxWidth: 200) // Set a maximum width for the button
+            .frame(maxWidth: 200)
             .padding(.top, 20)
 
             Spacer()
