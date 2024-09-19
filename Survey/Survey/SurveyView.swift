@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SurveyView: View {
+    @ObservedObject var authViewModel: AuthViewModel // Accept AuthViewModel
     @State private var selectedOption: String?
 
     var body: some View {
@@ -68,6 +69,7 @@ struct CustomButtonStyle: ButtonStyle {
 
 struct SurveyView_Previews: PreviewProvider {
     static var previews: some View {
-        SurveyView()
+        // Provide a mock AuthViewModel for previews
+        SurveyView(authViewModel: AuthViewModel()) // Pass AuthViewModel here
     }
 }

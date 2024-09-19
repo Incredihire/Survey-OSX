@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92B90F62C9C9B6700CD96BA /* LoginView.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = C92B90F52C9C9B6700CD96BA /* LoginView.swift .swift */; };
+		C92B90F82C9C9B9800CD96BA /* ContentLoginView.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = C92B90F72C9C9B9800CD96BA /* ContentLoginView.swift .swift */; };
+		C92B90FE2C9CA91A00CD96BA /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92B90FD2C9CA91A00CD96BA /* AuthViewModel.swift */; };
 		C99701AD2C9A468F009A3039 /* SurveyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99701AC2C9A468F009A3039 /* SurveyApp.swift */; };
 		C99701AF2C9A468F009A3039 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99701AE2C9A468F009A3039 /* ContentView.swift */; };
 		C99701B12C9A468F009A3039 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99701B02C9A468F009A3039 /* Item.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C92B90F52C9C9B6700CD96BA /* LoginView.swift .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView.swift .swift"; sourceTree = "<group>"; };
+		C92B90F72C9C9B9800CD96BA /* ContentLoginView.swift .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentLoginView.swift .swift"; sourceTree = "<group>"; };
+		C92B90FD2C9CA91A00CD96BA /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C99701A92C9A468F009A3039 /* Survey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Survey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99701AC2C9A468F009A3039 /* SurveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyApp.swift; sourceTree = "<group>"; };
 		C99701AE2C9A468F009A3039 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,7 +116,10 @@
 				C99701E32C9A6C03009A3039 /* Assets */,
 				C99701AC2C9A468F009A3039 /* SurveyApp.swift */,
 				C99701B02C9A468F009A3039 /* Item.swift */,
+				C92B90F52C9C9B6700CD96BA /* LoginView.swift .swift */,
 				C99701B42C9A4690009A3039 /* Preview Content */,
+				C92B90F72C9C9B9800CD96BA /* ContentLoginView.swift .swift */,
+				C92B90FD2C9CA91A00CD96BA /* AuthViewModel.swift */,
 			);
 			path = Survey;
 			sourceTree = "<group>";
@@ -296,7 +305,10 @@
 			files = (
 				C99701E02C9A4F21009A3039 /* SurveyView.swift in Sources */,
 				C99701AF2C9A468F009A3039 /* ContentView.swift in Sources */,
+				C92B90F82C9C9B9800CD96BA /* ContentLoginView.swift .swift in Sources */,
+				C92B90FE2C9CA91A00CD96BA /* AuthViewModel.swift in Sources */,
 				C99701B12C9A468F009A3039 /* Item.swift in Sources */,
+				C92B90F62C9C9B6700CD96BA /* LoginView.swift .swift in Sources */,
 				C99701AD2C9A468F009A3039 /* SurveyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
