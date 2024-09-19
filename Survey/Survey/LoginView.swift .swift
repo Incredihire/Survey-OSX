@@ -5,7 +5,7 @@ struct LoginView: View {
 
     var body: some View {
         VStack {
-            Text("Welcome Back!")
+            Text("Welcome Back:)")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.bottom, 40)
@@ -19,12 +19,12 @@ struct LoginView: View {
                 .padding()
 
             Button(action: {
-                // Explicitly specify the login parameters
+              
                 authViewModel.login(completion: { success in
                     if success {
-                        // Handle successful login, you may want to navigate to the survey view
+                       
                     } else {
-                        // Handle login failure (show an alert, for example)
+                       
                     }
                 })
             }) {
