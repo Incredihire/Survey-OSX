@@ -19,14 +19,13 @@ struct LoginView: View {
                 .padding()
 
             Button(action: {
-              
-                authViewModel.login(completion: { success in
+                authViewModel.login { success in
                     if success {
-                       
+                        
                     } else {
-                       
+                        
                     }
-                })
+                }
             }) {
                 Text("Log In")
                     .fontWeight(.semibold)

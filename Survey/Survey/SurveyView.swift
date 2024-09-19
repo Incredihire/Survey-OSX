@@ -2,7 +2,6 @@ import SwiftUI
 
 struct SurveyView: View {
     @ObservedObject var authViewModel: AuthViewModel
-    
     @State private var selectedOption: String?
 
     var body: some View {
@@ -54,7 +53,6 @@ struct SurveyView: View {
     }
 }
 
-// Custom button style for colored buttons
 struct CustomButtonStyle: ButtonStyle {
     var color: Color
 
