@@ -3,11 +3,13 @@ import XCTest
 final class SurveyUITests: XCTestCase {
 
     override func setUpWithError() throws {
+        // Setup code here. This method is called before each test method in the class.
         continueAfterFailure = false
+        // Set initial state required for tests here.
     }
 
     override func tearDownWithError() throws {
-        // Teardown code here if needed
+        // Teardown code here. This method is called after each test method in the class.
     }
 
     func testExample() throws {
