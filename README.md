@@ -31,3 +31,7 @@ Press Cmd + B to build your project. This compiles all components and checks for
 3. Run the App
 Press Cmd + R to run the app. Alternatively, click the play button (a triangle) in the top left corner of the Xcode window.
 
+##Possible Errors
+
+When you clone the project and start running it, you might encounter an error: "One of the paths in DEVELOPMENT_ASSET_PATHS does not exist: ..."
+Solution: Check the exact path; the name of the folder may appear in red or may not exist at all. If the folder is empty, delete it and recreate it with the exact same name. If it doesn’t exist, create a new folder with the name indicated in the missing path.
