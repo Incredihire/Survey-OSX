@@ -2,7 +2,6 @@ import SwiftUI
 
 struct SurveyView: View {
     var question: String
-    
     @State private var selectedOption: String?
 
     var body: some View {

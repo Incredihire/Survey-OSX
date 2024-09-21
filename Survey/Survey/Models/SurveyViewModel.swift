@@ -15,8 +15,7 @@ class SurveyViewModel: ObservableObject {
                     break
                 case .failure(let error):
                     print("Failed to load inquiries: \(error)")
-                
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 600) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 600) {
                         self.loadInquiries()
                     }
                 }
