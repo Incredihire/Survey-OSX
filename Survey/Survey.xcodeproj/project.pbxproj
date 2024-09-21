@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9253F842C9F6940003F075D /* SurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9253F832C9F6940003F075D /* SurveyViewModel.swift */; };
+		C9253F862C9F6B7E003F075D /* InquiryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9253F852C9F6B7E003F075D /* InquiryModel.swift */; };
+		C973327A2C9F710C00C29235 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97332792C9F710C00C29235 /* MockServer.swift */; };
+		C973327C2C9F717400C29235 /* db.json in Resources */ = {isa = PBXBuildFile; fileRef = C973327B2C9F717400C29235 /* db.json */; };
 		C99701AD2C9A468F009A3039 /* SurveyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99701AC2C9A468F009A3039 /* SurveyApp.swift */; };
 		C99701AF2C9A468F009A3039 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99701AE2C9A468F009A3039 /* ContentView.swift */; };
 		C99701B12C9A468F009A3039 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99701B02C9A468F009A3039 /* Item.swift */; };
@@ -38,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9253F832C9F6940003F075D /* SurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModel.swift; sourceTree = "<group>"; };
+		C9253F852C9F6B7E003F075D /* InquiryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryModel.swift; sourceTree = "<group>"; };
+		C97332792C9F710C00C29235 /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
+		C973327B2C9F717400C29235 /* db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = db.json; sourceTree = "<group>"; };
 		C99701A92C9A468F009A3039 /* Survey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Survey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99701AC2C9A468F009A3039 /* SurveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyApp.swift; sourceTree = "<group>"; };
 		C99701AE2C9A468F009A3039 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,11 +88,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C958042F2C9F636F000116A0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9253F832C9F6940003F075D /* SurveyViewModel.swift */,
+				C9253F852C9F6B7E003F075D /* InquiryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C96DB3742C9D0CF900D7001D /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C97332782C9F70F500C29235 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C97332792C9F710C00C29235 /* MockServer.swift */,
+				C973327B2C9F717400C29235 /* db.json */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C99701A02C9A468F009A3039 = {
@@ -111,6 +137,8 @@
 		C99701AB2C9A468F009A3039 /* Survey */ = {
 			isa = PBXGroup;
 			children = (
+				C97332782C9F70F500C29235 /* Network */,
+				C958042F2C9F636F000116A0 /* Models */,
 				C96DB3742C9D0CF900D7001D /* Preview Content */,
 				C99701B72C9A4690009A3039 /* Survey.entitlements */,
 				C99701AE2C9A468F009A3039 /* ContentView.swift */,
@@ -268,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C973327C2C9F717400C29235 /* db.json in Resources */,
 				C99701B62C9A4690009A3039 /* Preview Assets.xcassets in Resources */,
 				C99701B32C9A4690009A3039 /* Assets.xcassets in Resources */,
 			);
@@ -296,7 +325,10 @@
 			files = (
 				C99701E02C9A4F21009A3039 /* SurveyView.swift in Sources */,
 				C99701AF2C9A468F009A3039 /* ContentView.swift in Sources */,
+				C973327A2C9F710C00C29235 /* MockServer.swift in Sources */,
 				C99701B12C9A468F009A3039 /* Item.swift in Sources */,
+				C9253F862C9F6B7E003F075D /* InquiryModel.swift in Sources */,
+				C9253F842C9F6940003F075D /* SurveyViewModel.swift in Sources */,
 				C99701AD2C9A468F009A3039 /* SurveyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

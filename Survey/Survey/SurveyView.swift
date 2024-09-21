@@ -1,11 +1,13 @@
 import SwiftUI
 
 struct SurveyView: View {
+    var question: String
+    
     @State private var selectedOption: String?
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("How was your day?")
+            Text(question)
                 .font(.title)
                 .padding()
 
@@ -40,8 +42,7 @@ struct SurveyView: View {
                 }
             }
             .padding(.horizontal)
-
-            // Display the selected option
+            
             if let selectedOption = selectedOption {
                 Text("You selected: \(selectedOption)")
                     .padding()
@@ -52,7 +53,6 @@ struct SurveyView: View {
     }
 }
 
-// Custom button style for colored buttons
 struct CustomButtonStyle: ButtonStyle {
     var color: Color
 
@@ -68,6 +68,6 @@ struct CustomButtonStyle: ButtonStyle {
 
 struct SurveyView_Previews: PreviewProvider {
     static var previews: some View {
-        SurveyView()
+        SurveyView(question: "How was your day?")
     }
 }
