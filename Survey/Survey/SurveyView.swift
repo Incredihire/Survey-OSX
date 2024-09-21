@@ -41,7 +41,6 @@ struct SurveyView: View {
                 }
             }
             .padding(.horizontal)
-            
             if let selectedOption = selectedOption {
                 Text("You selected: \(selectedOption)")
                     .padding()
