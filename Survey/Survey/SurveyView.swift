@@ -8,6 +8,7 @@ struct SurveyView: View {
         VStack(spacing: 20) {
             Text(question)
                 .font(.title)
+                .foregroundColor(.black)
                 .padding()
 
             // Buttons arranged in two rows
