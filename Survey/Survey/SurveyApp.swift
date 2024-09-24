@@ -21,6 +21,5 @@ struct SurveyApp: App {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
-    
     }
 }
