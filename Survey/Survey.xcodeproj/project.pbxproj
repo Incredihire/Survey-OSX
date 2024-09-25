@@ -23,6 +23,7 @@
 		C99701DC2C9A4893009A3039 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = C99701DB2C9A4893009A3039 /* SwiftUIX */; };
 		C99701E02C9A4F21009A3039 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99701DF2C9A4F21009A3039 /* SurveyView.swift */; };
 		C99701E22C9A63BE009A3039 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = C99701E12C9A63BE009A3039 /* SwiftUIX */; };
+		C9E003602CA3A603009E6DD5 /* InquiryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0035F2CA3A603009E6DD5 /* InquiryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		C99701CA2C9A4690009A3039 /* SurveyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyUITests.swift; sourceTree = "<group>"; };
 		C99701CC2C9A4690009A3039 /* SurveyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C99701DF2C9A4F21009A3039 /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
+		C9E0035F2CA3A603009E6DD5 /* InquiryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				C9377D282CA24F2C00D51356 /* MockServer.swift */,
 				C9377D2D2CA24F9200D51356 /* db.json */,
+				C9E0035F2CA3A603009E6DD5 /* InquiryService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				C99701AF2C9A468F009A3039 /* ContentView.swift in Sources */,
 				C99701B12C9A468F009A3039 /* Item.swift in Sources */,
 				C99701AD2C9A468F009A3039 /* SurveyApp.swift in Sources */,
+				C9E003602CA3A603009E6DD5 /* InquiryService.swift in Sources */,
 				C9377D242CA24EBC00D51356 /* InquiryModel.swift in Sources */,
 				C9377D2C2CA24F6E00D51356 /* Logger.swift in Sources */,
 			);

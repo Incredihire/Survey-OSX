@@ -1,16 +1,12 @@
 import SwiftUI
-
 struct ContentView: View {
     @StateObject private var viewModel = SurveyViewModel()
-
     var body: some View {
         VStack {
-            if viewModel.inquiries.isEmpty {
-                EmptyView()
+            if let inquiry = viewModel.inquiries.first {
+                SurveyView(question: inquiry.question)
             } else {
-                ForEach(viewModel.inquiries) { inquiry in
-                    SurveyView(question: inquiry.question)
-                }
+                EmptyView()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
