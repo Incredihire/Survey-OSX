@@ -11,35 +11,31 @@ struct SurveyView: View {
                 .foregroundColor(.black)
                 .padding()
 
-            // Buttons arranged in two rows
-            VStack(spacing: 10) {
-                HStack {
-                    Button("Awful") {
-                        self.selectedOption = "Awful"
-                    }
-                    .buttonStyle(CustomButtonStyle(color: .red))
-
-                    Button("Bad") {
-                        self.selectedOption = "Bad"
-                    }
-                    .buttonStyle(CustomButtonStyle(color: .orange))
-
-                    Button("Decent") {
-                        self.selectedOption = "Decent"
-                    }
-                    .buttonStyle(CustomButtonStyle(color: .blue))
+            HStack {
+                Button("Awful") {
+                    self.selectedOption = "Awful"
                 }
-                HStack {
-                    Button("Good") {
-                        self.selectedOption = "Good"
-                    }
-                    .buttonStyle(CustomButtonStyle(color: .green))
+                .buttonStyle(CustomButtonStyle(color: .red))
 
-                    Button("Great") {
-                        self.selectedOption = "Great"
-                    }
-                    .buttonStyle(CustomButtonStyle(color: .green))
+                Button("Bad") {
+                    self.selectedOption = "Bad"
                 }
+                .buttonStyle(CustomButtonStyle(color: .orange))
+
+                Button("Decent") {
+                    self.selectedOption = "Decent"
+                }
+                .buttonStyle(CustomButtonStyle(color: .blue))
+
+                Button("Good") {
+                    self.selectedOption = "Good"
+                }
+                .buttonStyle(CustomButtonStyle(color: .green))
+
+                Button("Great") {
+                    self.selectedOption = "Great"
+                }
+                .buttonStyle(CustomButtonStyle(color: .green))
             }
             .padding(.horizontal)
 
