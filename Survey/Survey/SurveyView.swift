@@ -16,7 +16,6 @@ struct SurveyView: View {
                 ForEach(options.indices, id: \.self) { index in
                     let option = options[index]
                     VStack {
-           
                         Button(action: {
                             selectedOption = option
                         }) {
@@ -45,7 +44,6 @@ struct SurveyView: View {
             .padding()
 
             Button(action: {
-
                 print("Selected option: \(selectedOption ?? "None")")
             }) {
                 Text("Submit")
