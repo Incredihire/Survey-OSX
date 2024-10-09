@@ -18,7 +18,7 @@ struct SurveyView: View {
                     VStack {
                         Button(action: {
                             selectedOption = option
-                        }) {
+                        }, label: {
                             Circle()
                                 .stroke(Color.black, lineWidth: 2)
                                 .background(
@@ -27,7 +27,7 @@ struct SurveyView: View {
                                         .padding(4)
                                 )
                                 .frame(width: 15, height: 15)
-                        }
+                        })
 
                         Text(option)
                             .frame(width: 180, height: 40)
@@ -45,7 +45,7 @@ struct SurveyView: View {
 
             Button(action: {
                 print("Selected option: \(selectedOption ?? "None")")
-            }) {
+            }, label: {
                 Text("Submit")
                     .font(.headline)
                     .foregroundColor(.white)
@@ -53,7 +53,7 @@ struct SurveyView: View {
                     .frame(minWidth: 150)
                     .background(Color.green)
                     .cornerRadius(8)
-            }
+            })
             .buttonStyle(PlainButtonStyle())
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
