@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftUIX
 
 struct SurveyView: View {
     var question: String
@@ -11,59 +12,66 @@ struct SurveyView: View {
                 .foregroundColor(.black)
                 .padding()
 
-            HStack {
-                Button("Awful") {
-                    self.selectedOption = "Awful"
-                }
-                .buttonStyle(CustomButtonStyle(color: .red))
+            HStack(spacing: 40) {
+                ForEach(options.indices, id: \.self) { index in
+                    let option = options[index]
+                    VStack {
+                        Button(action: {
+                            selectedOption = option
+                        }, label: {
+                            Circle()
+                                .stroke(Color.black, lineWidth: 2)
+                                .background(
+                                    Circle()
+                                        .fill(selectedOption == option ? Color.black : Color.clear)
+                                        .padding(4)
+                                )
+                                .frame(width: 15, height: 15)
+                        })
 
-                Button("Bad") {
-                    self.selectedOption = "Bad"
+                        Text(option)
+                            .frame(width: 180, height: 40)
+                            .background(selectedOption == option ? Color.gray.opacity(0.3) : Color.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 3)
+                            )
+                            .cornerRadius(8)
+                            .foregroundColor(.black)
+                    }
                 }
-                .buttonStyle(CustomButtonStyle(color: .orange))
-
-                Button("Decent") {
-                    self.selectedOption = "Decent"
-                }
-                .buttonStyle(CustomButtonStyle(color: .blue))
-
-                Button("Good") {
-                    self.selectedOption = "Good"
-                }
-                .buttonStyle(CustomButtonStyle(color: .green))
-
-                Button("Great") {
-                    self.selectedOption = "Great"
-                }
-                .buttonStyle(CustomButtonStyle(color: .green))
             }
-            .padding(.horizontal)
+            .padding()
 
-            if let selectedOption = selectedOption {
-                Text("You selected: \(selectedOption)")
-                    .padding()
+            Button(action: {
+                print("Selected option: \(selectedOption ?? "None")")
+            }, label: {
+                Text("Submit")
                     .font(.headline)
-            }
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(minWidth: 150)
+                    .background(Color.green)
+                    .cornerRadius(8)
+            })
+            .buttonStyle(PlainButtonStyle())
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.black, lineWidth: 2)
+            )
+            .padding(0)
         }
         .padding()
+        .background(Color.white)
     }
-}
 
-struct CustomButtonStyle: ButtonStyle {
-    var color: Color
-
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding()
-            .background(color)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-            .scaleEffect(configuration.isPressed ? 0.95 : 1.0) // Scale down when pressed
+    private var options: [String] {
+        ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]
     }
 }
 
 struct SurveyView_Previews: PreviewProvider {
     static var previews: some View {
-        SurveyView(question: "How was your day?")
+        SurveyView(question: "My day was productive.")
     }
 }
