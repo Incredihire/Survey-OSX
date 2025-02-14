@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07291B072D5DB05000A2F656 /* AppAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07291B062D5DB05000A2F656 /* AppAuth.framework */; };
+		07291B082D5DB05000A2F656 /* AppAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07291B062D5DB05000A2F656 /* AppAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		07291B112D5DB12D00A2F656 /* AppAuth.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 07291B102D5DB12D00A2F656 /* AppAuth.framework.dSYM */; };
+		07291B132D5DBD3A00A2F656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07291B122D5DBD3A00A2F656 /* AppDelegate.swift */; };
 		C9377D242CA24EBC00D51356 /* InquiryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D232CA24EBC00D51356 /* InquiryModel.swift */; };
 		C9377D262CA24EF900D51356 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D252CA24EF900D51356 /* SurveyModel.swift */; };
 		C9377D292CA24F2C00D51356 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D282CA24F2C00D51356 /* MockServer.swift */; };
@@ -43,7 +47,37 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		07291B092D5DB05000A2F656 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				07291B082D5DB05000A2F656 /* AppAuth.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07291B0A2D5DB0A700A2F656 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				07291B112D5DB12D00A2F656 /* AppAuth.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		07291B042D5DADBC00A2F656 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		07291B052D5DB04800A2F656 /* AppAuth.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AppAuth.framework.dSYM; path = Carthage/Build/Mac/AppAuth.framework.dSYM; sourceTree = "<group>"; };
+		07291B062D5DB05000A2F656 /* AppAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppAuth.framework; path = Carthage/Build/Mac/AppAuth.framework; sourceTree = "<group>"; };
+		07291B0B2D5DB0E000A2F656 /* AppAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppAuthCore.framework; path = Carthage/Build/Mac/AppAuthCore.framework; sourceTree = "<group>"; };
+		07291B102D5DB12D00A2F656 /* AppAuth.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AppAuth.framework.dSYM; path = Carthage/Build/Mac/AppAuth.framework.dSYM; sourceTree = "<group>"; };
+		07291B122D5DBD3A00A2F656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9377D232CA24EBC00D51356 /* InquiryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryModel.swift; sourceTree = "<group>"; };
 		C9377D252CA24EF900D51356 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
 		C9377D282CA24F2C00D51356 /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
@@ -70,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07291B072D5DB05000A2F656 /* AppAuth.framework in Frameworks */,
 				C99701DC2C9A4893009A3039 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +157,9 @@
 		C99701A02C9A468F009A3039 = {
 			isa = PBXGroup;
 			children = (
+				07291B122D5DBD3A00A2F656 /* AppDelegate.swift */,
+				07291B102D5DB12D00A2F656 /* AppAuth.framework.dSYM */,
+				07291B042D5DADBC00A2F656 /* Cartfile */,
 				C99701AB2C9A468F009A3039 /* Survey */,
 				C99701BF2C9A4690009A3039 /* SurveyTests */,
 				C99701C92C9A4690009A3039 /* SurveyUITests */,
@@ -176,6 +214,9 @@
 		C99701DA2C9A488C009A3039 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07291B0B2D5DB0E000A2F656 /* AppAuthCore.framework */,
+				07291B062D5DB05000A2F656 /* AppAuth.framework */,
+				07291B052D5DB04800A2F656 /* AppAuth.framework.dSYM */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,6 +240,8 @@
 				C99701A52C9A468F009A3039 /* Sources */,
 				C99701A62C9A468F009A3039 /* Frameworks */,
 				C99701A72C9A468F009A3039 /* Resources */,
+				07291B092D5DB05000A2F656 /* Embed Frameworks */,
+				07291B0A2D5DB0A700A2F656 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -337,6 +380,7 @@
 				C99701AD2C9A468F009A3039 /* SurveyApp.swift in Sources */,
 				C9E003602CA3A603009E6DD5 /* InquiryService.swift in Sources */,
 				C9377D242CA24EBC00D51356 /* InquiryModel.swift in Sources */,
+				07291B132D5DBD3A00A2F656 /* AppDelegate.swift in Sources */,
 				C9377D2C2CA24F6E00D51356 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +548,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Survey\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -535,6 +583,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Survey\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
