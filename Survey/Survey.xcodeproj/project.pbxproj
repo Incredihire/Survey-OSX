@@ -11,6 +11,8 @@
 		07291B082D5DB05000A2F656 /* AppAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07291B062D5DB05000A2F656 /* AppAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07291B112D5DB12D00A2F656 /* AppAuth.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 07291B102D5DB12D00A2F656 /* AppAuth.framework.dSYM */; };
 		07291B132D5DBD3A00A2F656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07291B122D5DBD3A00A2F656 /* AppDelegate.swift */; };
+		079930272D6D27FC007D0D09 /* unsetoidcvars.sh in Resources */ = {isa = PBXBuildFile; fileRef = 079930262D6D27FC007D0D09 /* unsetoidcvars.sh */; };
+		079930292D6D283B007D0D09 /* setoidcvars.sh in Resources */ = {isa = PBXBuildFile; fileRef = 079930282D6D283B007D0D09 /* setoidcvars.sh */; };
 		C9377D242CA24EBC00D51356 /* InquiryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D232CA24EBC00D51356 /* InquiryModel.swift */; };
 		C9377D262CA24EF900D51356 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D252CA24EF900D51356 /* SurveyModel.swift */; };
 		C9377D292CA24F2C00D51356 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D282CA24F2C00D51356 /* MockServer.swift */; };
@@ -78,6 +80,8 @@
 		07291B0B2D5DB0E000A2F656 /* AppAuthCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppAuthCore.framework; path = Carthage/Build/Mac/AppAuthCore.framework; sourceTree = "<group>"; };
 		07291B102D5DB12D00A2F656 /* AppAuth.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AppAuth.framework.dSYM; path = Carthage/Build/Mac/AppAuth.framework.dSYM; sourceTree = "<group>"; };
 		07291B122D5DBD3A00A2F656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		079930262D6D27FC007D0D09 /* unsetoidcvars.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = unsetoidcvars.sh; sourceTree = "<group>"; };
+		079930282D6D283B007D0D09 /* setoidcvars.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setoidcvars.sh; sourceTree = "<group>"; };
 		C9377D232CA24EBC00D51356 /* InquiryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryModel.swift; sourceTree = "<group>"; };
 		C9377D252CA24EF900D51356 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
 		C9377D282CA24F2C00D51356 /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		C99701A02C9A468F009A3039 = {
 			isa = PBXGroup;
 			children = (
+				079930282D6D283B007D0D09 /* setoidcvars.sh */,
+				079930262D6D27FC007D0D09 /* unsetoidcvars.sh */,
 				07291B122D5DBD3A00A2F656 /* AppDelegate.swift */,
 				07291B102D5DB12D00A2F656 /* AppAuth.framework.dSYM */,
 				07291B042D5DADBC00A2F656 /* Cartfile */,
@@ -345,8 +351,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079930292D6D283B007D0D09 /* setoidcvars.sh in Resources */,
 				C9377D2E2CA24F9200D51356 /* db.json in Resources */,
 				C99701B62C9A4690009A3039 /* Preview Assets.xcassets in Resources */,
+				079930272D6D27FC007D0D09 /* unsetoidcvars.sh in Resources */,
 				C99701B32C9A4690009A3039 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

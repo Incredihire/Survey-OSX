@@ -3,7 +3,6 @@ import AppKit
 import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
-
     var currentAuthorizationFlow: OIDExternalUserAgentSession?
 
     typealias PostRegistrationCallback = (_ configuration: OIDServiceConfiguration?, _ registrationResponse: OIDRegistrationResponse?) -> Void
@@ -11,7 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
     /**
      The OIDC issuer from which the configuration will be discovered.
     */
-    let kIssuer: String = "https://accounts.google.com";
+    let kIssuer: String = "OIDC_ISSUER_HERE"
 
     /**
      The OAuth client ID.
@@ -19,22 +18,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
      For client configuration instructions, see the [README](https://github.com/openid/AppAuth-iOS/blob/master/Examples/Example-iOS_Swift-Carthage/README.md).
      Set to nil to use dynamic registration with this example.
     */
-    let kClientID: String? = "OIDC_CLIENT_ID_HERE";
+    let kClientID: String? = "OIDC_CLIENT_ID_HERE"
 
-    let kClientSecret: String? = "OIDC_CLIENT_SECRET_HERE";
+    let kClientSecret: String? = "OIDC_CLIENT_SECRET_HERE"
     /**
      The OAuth redirect URI for the client @c kClientID.
 
      For client configuration instructions, see the [README](https://github.com/openid/AppAuth-iOS/blob/master/Examples/Example-iOS_Swift-Carthage/README.md).
     */
-    let kRedirectURI: String = "OIDC_CLIENT_ID_REVERESE_HERE:/auth/callback";
+    let kRedirectURI: String = "OIDC_REDIRECT_URI_HERE"
 
     /**
      NSCoding key for the authState property.
     */
-    let kAppAuthExampleAuthStateKey: String = "authState";
+    let kAppAuthExampleAuthStateKey: String = "authState"
 
-    @State private var authState: OIDAuthState? = nil;
+    @State private var authState: OIDAuthState? = nil
 
     func doClientRegistration(configuration: OIDServiceConfiguration, callback: @escaping PostRegistrationCallback) {
 
@@ -75,11 +74,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
             return
         }
 
-//        guard let appDelegate = NSApplication.shared.delegate as? AppDelegate else {
-//            self.logMessage("Error accessing AppDelegate")
-//            return
-//        }
-
         // builds authentication request
         let request = OIDAuthorizationRequest(configuration: configuration,
                                               clientId: clientID,
@@ -108,10 +102,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
 
     func setAuthState(_ authState: OIDAuthState?) {
         if (self.authState == authState) {
-            return;
+            return
         }
-        self.authState = authState;
-        self.authState?.stateChangeDelegate = self;
+        self.authState = authState
+        self.authState?.stateChangeDelegate = self
         self.stateChanged()
     }
 
@@ -121,7 +115,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
 
     func stateChanged() {
         self.saveState()
-        self.updateUI()
     }
     func saveState() {
 
@@ -136,63 +129,33 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
             userDefaults.synchronize()
         }
     }
-    func updateUI() {
-
-//        self.codeExchangeButton.isEnabled = self.authState?.lastAuthorizationResponse.authorizationCode != nil && !((self.authState?.lastTokenResponse) != nil)
-//
-//        if let authState = self.authState {
-//            self.authAutoButton.setTitle("1. Re-Auth", for: .normal)
-//            self.authManual.setTitle("1(A) Re-Auth", for: .normal)
-//            self.userinfoButton.isEnabled = authState.isAuthorized ? true : false
-//        } else {
-//            self.authAutoButton.setTitle("1. Auto", for: .normal)
-//            self.authManual.setTitle("1(A) Manual", for: .normal)
-//            self.userinfoButton.isEnabled = false
-//        }
-    }
 
     func loadState() {
         guard let data = UserDefaults(suiteName: "group.net.openid.appauth.Example")?.object(forKey: kAppAuthExampleAuthStateKey) as? Data else {
             return
         }
-
         if let authState = NSKeyedUnarchiver.unarchiveObject(with: data) as? OIDAuthState {
             self.setAuthState(authState)
         }
     }
 
     func logMessage(_ message: String?) {
-
         guard let message = message else {
             return
         }
-
-        print(message);
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm:ss";
-        let dateString = dateFormatter.string(from: Date())
-
-        // appends to output log
-//        DispatchQueue.main.async {
-//            let logText = "\(self.logTextView.text ?? "")\n\(dateString): \(message)"
-//            self.logTextView.text = logText
-//        }
         Logger.shared.log(message: message)
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-      // Register for GetURL events.
-      let appleEventManager = NSAppleEventManager.shared()
-      appleEventManager.setEventHandler(
-        self,
-        andSelector: "handleGetURLEvent:replyEvent:",
-        forEventClass: AEEventClass(kInternetEventClass),
-        andEventID: AEEventID(kAEGetURL)
-      )
-      self.loadState()
-      self.updateUI()
-
+        // Register for GetURL events.
+        let appleEventManager = NSAppleEventManager.shared()
+        appleEventManager.setEventHandler(
+            self,
+            andSelector: "handleGetURLEvent:replyEvent:",
+            forEventClass: AEEventClass(kInternetEventClass),
+            andEventID: AEEventID(kAEGetURL)
+        )
+        self.loadState()
 
         guard let issuer = URL(string: kIssuer) else {
             self.logMessage("Error creating URL for : \(kIssuer)")
@@ -203,7 +166,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
 
         // discovers endpoints
         OIDAuthorizationService.discoverConfiguration(forIssuer: issuer) { configuration, error in
-
             guard let config = configuration else {
                 self.logMessage("Error retrieving discovery document: \(error?.localizedDescription ?? "DEFAULT_ERROR")")
                 self.setAuthState(nil)
@@ -213,7 +175,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
             self.logMessage("Got configuration: \(config)")
 
             if let clientId = self.kClientID {
-                self.doAuthWithAutoCodeExchange(configuration: config, clientID: clientId, clientSecret: self.kClientSecret!)
+                self.doAuthWithAutoCodeExchange(configuration: config, clientID: clientId, clientSecret: self.kClientSecret)
             } else {
                 self.doClientRegistration(configuration: config) { configuration, response in
 
@@ -228,11 +190,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
                 }
             }
         }
-
-
-
-
-
     }
 
     func handleGetURLEvent(event: NSAppleEventDescriptor?, replyEvent: NSAppleEventDescriptor?) {
