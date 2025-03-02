@@ -1,21 +1,18 @@
 import Foundation
+import AppKit
 import Combine
 
 class SurveyViewModel: ObservableObject {
-    @Published var inquiries: [Inquiry] = []
+    @Published var inquiry: Inquiry? = nil
     private var cancellables = Set<AnyCancellable>()
-    private let mockServer = MockServer()
+    private let surveyServer = SurveyServer()
 
-    init() {
-        loadInquiries()
+    func loadInquiry() {
+        self.attemptLoadInquiry()
     }
 
-    func loadInquiries() {
-        attemptLoadInquiries()
-    }
-
-    private func attemptLoadInquiries() {
-        mockServer.loadInquiries()
+    private func attemptLoadInquiry() {
+        surveyServer.loadInquiry()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
@@ -23,17 +20,17 @@ class SurveyViewModel: ObservableObject {
                     break
                 case .failure(let error):
                     Logger.shared.log(error: error)
-                    self?.retryLoadInquiries()
+                    self?.retryLoadInquiry()
                 }
-            }, receiveValue: { [weak self] inquiries in
-                self?.inquiries = inquiries
+            }, receiveValue: { [weak self] inquiry in
+                self?.inquiry = inquiry
             })
             .store(in: &cancellables)
     }
 
-    private func retryLoadInquiries() {
+    private func retryLoadInquiry() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.attemptLoadInquiries()
+            self.attemptLoadInquiry()
         }
     }
 }

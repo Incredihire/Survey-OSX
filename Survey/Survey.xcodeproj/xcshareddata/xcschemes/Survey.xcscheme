@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
+   LastUpgradeVersion = "1610"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -9,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "/bin/zsh $PROJECT_DIR/setoidcvars.sh;&#10;"
+               scriptText = "/bin/zsh $PROJECT_DIR/set_env_vars.sh;&#10;"
                shellToInvoke = "/bin/zsh">
                <EnvironmentBuildable>
                   <BuildableReference
@@ -28,7 +29,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "/bin/zsh $PROJECT_DIR/unsetoidcvars.sh;&#10;"
+               scriptText = "/bin/zsh $PROJECT_DIR/unset_env_vars.sh;&#10;"
                shellToInvoke = "/bin/zsh">
                <EnvironmentBuildable>
                   <BuildableReference

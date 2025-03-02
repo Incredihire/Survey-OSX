@@ -1,6 +1,4 @@
-[
-  {
-    "id": 1,
-    "question": "How was your meeting?"
-  }
-]
+{
+  "id": 1,
+  "text": "How was your meeting?"
+}

@@ -1,4 +1,4 @@
 import Combine
 protocol InquiryService {
-    func loadInquiries() -> AnyPublisher<[Inquiry], Error>
+    func loadInquiry() -> AnyPublisher<Inquiry, Error>
 }
