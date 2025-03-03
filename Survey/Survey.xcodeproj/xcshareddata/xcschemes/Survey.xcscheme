@@ -5,44 +5,6 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <PreActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "/bin/zsh $PROJECT_DIR/set_env_vars.sh;&#10;"
-               shellToInvoke = "/bin/zsh">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "C99701A82C9A468F009A3039"
-                     BuildableName = "Survey.app"
-                     BlueprintName = "Survey"
-                     ReferencedContainer = "container:Survey.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PreActions>
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "/bin/zsh $PROJECT_DIR/unset_env_vars.sh;&#10;"
-               shellToInvoke = "/bin/zsh">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "C99701A82C9A468F009A3039"
-                     BuildableName = "Survey.app"
-                     BlueprintName = "Survey"
-                     ReferencedContainer = "container:Survey.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -89,6 +51,33 @@
             ReferencedContainer = "container:Survey.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OIDC_ISSUER"
+            value = "$(OIDC_ISSUER)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "OIDC_AUTHORIZATION_ENDPOINT"
+            value = "$(OIDC_AUTHORIZATION_ENDPOINT)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "OIDC_CLIENT_ID"
+            value = "$(OIDC_CLIENT_ID)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "OIDC_REDIRECT_URL"
+            value = "$(OIDC_REDIRECT_URL)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "API_SERVER_BASE_URL"
+            value = "$(API_SERVER_BASE_URL)"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <LocationScenarioReference
          identifier = "Honolulu, HI, USA"
          referenceType = "1">

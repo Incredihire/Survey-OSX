@@ -4,29 +4,28 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
     static private(set) var instance: AppDelegate! = nil
-    let kIssuer: String = "SURVEY_OSX_OIDC_ISSUER_HERE"
-    let kClientID: String? = "SURVEY_OSX_OIDC_CLIENT_ID_HERE"
-    let kClientSecret: String? = "SURVEY_OSX_OIDC_CLIENT_SECRET_HERE"
-    let kRedirectURI: String = "SURVEY_OSX_OIDC_REDIRECT_URI_HERE"
     let kAppAuthStateKey: String = "authState"
-    let kSuiteName = "com.incredihire.osx.Survey7"
+    let kSuiteName = "com.incredihire.osx.Survey"
     var authState: OIDAuthState? = nil
     var currentAuthorizationFlow: OIDExternalUserAgentSession?
+    private var applicationDidBecomeActiveCalled = false
 
-    func doAuthWithAutoCodeExchange(configuration: OIDServiceConfiguration, clientID: String, clientSecret: String?) {
-        guard let redirectURI = URL(string: kRedirectURI) else {
-            self.logMessage("Error creating URL for : \(kRedirectURI)")
-            return
-        }
-        let request = OIDAuthorizationRequest(configuration: configuration,
-                                              clientId: clientID,
-                                              clientSecret: clientSecret,
-                                              scopes: [OIDScopeOpenID, OIDScopeEmail, OIDScopeProfile],
-                                              redirectURL: redirectURI,
-                                              responseType: OIDResponseTypeCode,
-                                              additionalParameters: nil)
-        let keyWindow = NSApplication.shared.keyWindow!
-        self.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, presenting: keyWindow) { authState, error in
+    private func getOIDConfig() -> OIDServiceConfiguration? {
+        let issuer = URL(string: ProcessInfo.processInfo.environment["OIDC_ISSUER"]!)!
+        let authorizationEndpoint = URL(string: ProcessInfo.processInfo.environment["OIDC_AUTHORIZATION_ENDPOINT"]!)!
+        let tokenEndpoint = URL(string: "\(ProcessInfo.processInfo.environment["API_SERVER_BASE_URL"]!)/api/v1/auth/token/desktop")!
+        return OIDServiceConfiguration(authorizationEndpoint: authorizationEndpoint, tokenEndpoint: tokenEndpoint, issuer: issuer)
+    }
+
+    func doAuth() {
+        let request = OIDAuthorizationRequest(configuration: self.getOIDConfig()!,
+                                                    clientId: ProcessInfo.processInfo.environment["OIDC_CLIENT_ID"]!,
+                                                    clientSecret: nil,
+                                                    scopes: [OIDScopeOpenID, OIDScopeProfile, OIDScopeEmail],
+                                                    redirectURL: URL(string: ProcessInfo.processInfo.environment["OIDC_REDIRECT_URL"]!)!,
+                                                    responseType: OIDResponseTypeCode,
+                                                    additionalParameters: nil)
+        self.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, presenting: NSApplication.shared.keyWindow!) { authState, error in
             if let authState = authState {
                 self.setAuthState(authState)
             } else {
@@ -37,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
     }
 
     func setAuthState(_ authState: OIDAuthState?) {
-        if (self.authState == authState) {
+        if self.authState == authState {
             return
         }
         self.authState = authState
@@ -54,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
     }
 
     func saveState() {
-        var data: Data? = nil
+        var data: Data?
         if let authState = self.authState {
             do {
                 data = try NSKeyedArchiver.archivedData(withRootObject: authState, requiringSecureCoding: true)
@@ -100,24 +99,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
         )
         self.loadState()
     }
-    
-    func applicationDidFinishLaunching(_ notification: Notification) {
+
+    func applicationDidBecomeActive(_ notification: Notification) {
+        if applicationDidBecomeActiveCalled {
+            return
+        }
+        applicationDidBecomeActiveCalled = true
         if(authState == nil) {
-            // initial auth request
-            guard let issuer = URL(string: kIssuer) else {
-               self.logMessage("Error creating URL for : \(kIssuer)")
-               return
-            }
-            OIDAuthorizationService.discoverConfiguration(forIssuer: issuer) { configuration, error in
-               guard let config = configuration else {
-                   self.logMessage("Error retrieving discovery document: \(error?.localizedDescription ?? "DEFAULT_ERROR")")
-                   self.setAuthState(nil)
-                   return
-               }
-               if let clientId = self.kClientID {
-                   self.doAuthWithAutoCodeExchange(configuration: config, clientID: clientId, clientSecret: self.kClientSecret)
-               }
-            }
+            self.doAuth()
         }
     }
 

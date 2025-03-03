@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		078EA0112D71A98D00BC347C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EA0102D71A98D00BC347C /* AppDelegate.swift */; };
 		078EA0192D73799100BC347C /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 078EA0182D73799100BC347C /* AppAuth */; };
-		0799302D2D6FCEDB007D0D09 /* set_env_vars.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0799302C2D6FCEDB007D0D09 /* set_env_vars.sh */; };
-		0799302F2D6FCEEA007D0D09 /* unset_env_vars.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0799302E2D6FCEEA007D0D09 /* unset_env_vars.sh */; };
 		079930312D6FD057007D0D09 /* SurveyServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079930302D6FD049007D0D09 /* SurveyServer.swift */; };
 		C9377D242CA24EBC00D51356 /* InquiryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D232CA24EBC00D51356 /* InquiryModel.swift */; };
 		C9377D262CA24EF900D51356 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D252CA24EF900D51356 /* SurveyModel.swift */; };
@@ -62,8 +60,6 @@
 
 /* Begin PBXFileReference section */
 		078EA0102D71A98D00BC347C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0799302C2D6FCEDB007D0D09 /* set_env_vars.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_env_vars.sh; sourceTree = "<group>"; };
-		0799302E2D6FCEEA007D0D09 /* unset_env_vars.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = unset_env_vars.sh; sourceTree = "<group>"; };
 		079930302D6FD049007D0D09 /* SurveyServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyServer.swift; sourceTree = "<group>"; };
 		C9377D232CA24EBC00D51356 /* InquiryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryModel.swift; sourceTree = "<group>"; };
 		C9377D252CA24EF900D51356 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
@@ -150,8 +146,6 @@
 				C99701BF2C9A4690009A3039 /* SurveyTests */,
 				C99701C92C9A4690009A3039 /* SurveyUITests */,
 				C99701AA2C9A468F009A3039 /* Products */,
-				0799302C2D6FCEDB007D0D09 /* set_env_vars.sh */,
-				0799302E2D6FCEEA007D0D09 /* unset_env_vars.sh */,
 			);
 			sourceTree = "<group>";
 		};
@@ -323,8 +317,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0799302F2D6FCEEA007D0D09 /* unset_env_vars.sh in Resources */,
-				0799302D2D6FCEDB007D0D09 /* set_env_vars.sh in Resources */,
 				C9377D2E2CA24F9200D51356 /* db.json in Resources */,
 				C99701B62C9A4690009A3039 /* Preview Assets.xcassets in Resources */,
 				C99701B32C9A4690009A3039 /* Assets.xcassets in Resources */,
@@ -521,6 +513,7 @@
 		C99701D12C9A4690009A3039 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_SERVER_BASE_URL = "http://localhost";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Survey/Survey.entitlements;
@@ -542,6 +535,10 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
+				OIDC_AUTHORIZATION_ENDPOINT = "https://accounts.google.com/o/oauth2/v2/auth";
+				OIDC_CLIENT_ID = "0123456789012-abcdef3456g7hi89jk0lm12nop34qr5s.apps.googleusercontent.com";
+				OIDC_ISSUER = "https://accounts.google.com";
+				OIDC_REDIRECT_URL = "com.googleusercontent.apps.0123456789012-abcdef3456g7hi89jk0lm12nop34qr5s:/auth/callback";
 				PRODUCT_BUNDLE_IDENTIFIER = "Incredihire-LLC.Survey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = macosx;
@@ -554,6 +551,7 @@
 		C99701D22C9A4690009A3039 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_SERVER_BASE_URL = "https://lsurvey-api.incredihire.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Survey/Survey.entitlements;
@@ -577,6 +575,10 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
+				OIDC_AUTHORIZATION_ENDPOINT = "https://accounts.google.com/o/oauth2/v2/auth";
+				OIDC_CLIENT_ID = "0123456789012-abcdef3456g7hi89jk0lm12nop34qr5s.apps.googleusercontent.com";
+				OIDC_ISSUER = "https://accounts.google.com";
+				OIDC_REDIRECT_URL = "com.googleusercontent.apps.0123456789012-abcdef3456g7hi89jk0lm12nop34qr5s:/auth/callback";
 				PRODUCT_BUNDLE_IDENTIFIER = "Incredihire-LLC.Survey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = macosx;

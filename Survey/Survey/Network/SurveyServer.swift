@@ -1,10 +1,9 @@
 import AppKit
 import Combine
 class SurveyServer: InquiryService  {
-    let kServerBaseURL = "SURVEY_OSX_SERVER_BASE_URL_HERE"
     private func getRequest(path: String) -> URLRequest {
         AppDelegate.instance.refreshTokens()
-        let url = URL(string: "\(kServerBaseURL)/api/v1/\(path)")!
+        let url = URL(string: "\(ProcessInfo.processInfo.environment["API_SERVER_BASE_URL"]!)/api/v1/\(path)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
