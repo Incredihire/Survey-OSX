@@ -3,7 +3,7 @@ import AppKit
 import Combine
 
 class SurveyViewModel: ObservableObject {
-    @Published var inquiry: Inquiry? = nil
+    @Published var inquiry: Inquiry?
     private var cancellables = Set<AnyCancellable>()
     private let surveyServer = SurveyServer()
 
@@ -17,18 +17,10 @@ class SurveyViewModel: ObservableObject {
             retryLoadInquiry()
             return
         }
-        guard let currentAccessToken: String = authState.lastTokenResponse?.accessToken else {
-            Logger.shared.log(message: "Current access token not available")
-            retryLoadInquiry()
-            return
-        }
-        guard let currentIdToken: String = authState.lastTokenResponse?.idToken else {
-            Logger.shared.log(message: "Current idToken not available")
-            retryLoadInquiry()
-            return
-        }
-        authState.performAction() { (accessToken, idToken, error) in
-            if error != nil  {
+        let currentAccessToken = authState.lastTokenResponse?.accessToken!
+        let currentIdToken = authState.lastTokenResponse?.idToken!
+        authState.performAction { (accessToken, idToken, error) in
+            if error != nil {
                 Logger.shared.log(message: "Error fetching fresh tokens: \(error?.localizedDescription ?? "ERROR")")
                 self.retryLoadInquiry()
                 return

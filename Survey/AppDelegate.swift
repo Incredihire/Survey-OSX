@@ -6,26 +6,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
     static private(set) var instance: AppDelegate! = nil
     let kAppAuthStateKey: String = "authState"
     let kSuiteName = "com.incredihire.osx.Survey"
-    var authState: OIDAuthState? = nil
+    var authState: OIDAuthState?
     var currentAuthorizationFlow: OIDExternalUserAgentSession?
     private var applicationDidBecomeActiveCalled = false
 
     private func getOIDConfig() -> OIDServiceConfiguration? {
         let issuer = URL(string: ProcessInfo.processInfo.environment["OIDC_ISSUER"]!)!
         let authorizationEndpoint = URL(string: ProcessInfo.processInfo.environment["OIDC_AUTHORIZATION_ENDPOINT"]!)!
-        let tokenEndpoint = URL(string: "\(ProcessInfo.processInfo.environment["API_SERVER_BASE_URL"]!)/api/v1/auth/token/desktop")!
-        return OIDServiceConfiguration(authorizationEndpoint: authorizationEndpoint, tokenEndpoint: tokenEndpoint, issuer: issuer)
+        let apiServerBaseUrl = ProcessInfo.processInfo.environment["API_SERVER_BASE_URL"]!
+        let tokenEndpoint = URL(string: "\(apiServerBaseUrl)/api/v1/auth/token/desktop")!
+        return OIDServiceConfiguration(authorizationEndpoint: authorizationEndpoint,
+                                       tokenEndpoint: tokenEndpoint,
+                                       issuer: issuer)
     }
 
     func doAuth() {
+        let clientId = ProcessInfo.processInfo.environment["OIDC_CLIENT_ID"]!
+        let redirectURL = ProcessInfo.processInfo.environment["OIDC_REDIRECT_URL"]!
         let request = OIDAuthorizationRequest(configuration: self.getOIDConfig()!,
-                                                    clientId: ProcessInfo.processInfo.environment["OIDC_CLIENT_ID"]!,
-                                                    clientSecret: nil,
-                                                    scopes: [OIDScopeOpenID, OIDScopeProfile, OIDScopeEmail],
-                                                    redirectURL: URL(string: ProcessInfo.processInfo.environment["OIDC_REDIRECT_URL"]!)!,
-                                                    responseType: OIDResponseTypeCode,
-                                                    additionalParameters: nil)
-        self.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, presenting: NSApplication.shared.keyWindow!) { authState, error in
+                                                clientId: clientId,
+                                                clientSecret: nil,
+                                                scopes: [OIDScopeOpenID, OIDScopeProfile, OIDScopeEmail],
+                                                redirectURL: URL(string: redirectURL)!,
+                                                responseType: OIDResponseTypeCode,
+                                                additionalParameters: nil)
+        self.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request,
+                                                               presenting: NSApplication.shared.keyWindow!) { authState, error in
             if let authState = authState {
                 self.setAuthState(authState)
             } else {
@@ -73,7 +79,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
             return
         }
         do {
-            if let authState = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [OIDAuthState.self], from: data) as? OIDAuthState {
+            if let authState = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [OIDAuthState.self],
+                                                                      from: data) as? OIDAuthState {
                 self.setAuthState(authState)
             }
         } catch {
@@ -105,19 +112,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
             return
         }
         applicationDidBecomeActiveCalled = true
-        if(authState == nil) {
+        if authState == nil {
             self.doAuth()
         }
     }
 
     @objc func handleGetURLEvent(event: NSAppleEventDescriptor?, replyEvent: NSAppleEventDescriptor?) {
-        if let urlString =
-          event?.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue{
+        if let urlString = event?.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue {
             let url = URL(string: urlString)!
-            if let authorizationFlow = self.currentAuthorizationFlow, authorizationFlow.resumeExternalUserAgentFlow(with: url) {
+            if let flow = self.currentAuthorizationFlow, flow.resumeExternalUserAgentFlow(with: url) {
                 self.currentAuthorizationFlow = nil
             }
         }
     }
 }
-

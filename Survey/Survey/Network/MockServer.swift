@@ -11,7 +11,7 @@ class MockServer: InquiryService {
             .map { $0.data }
             .decode(type: Inquiry.self, decoder: JSONDecoder())
             .handleEvents(receiveCompletion: { completion in
-                if case .failure(_) = completion {
+                if case .failure = completion {
                     print("Network request failed")
                 }
             })

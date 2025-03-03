@@ -1,6 +1,6 @@
 import AppKit
 import Combine
-class SurveyServer: InquiryService  {    
+class SurveyServer: InquiryService {
     private func getRequest(path: String) -> URLRequest {
         let url = URL(string: "\(ProcessInfo.processInfo.environment["API_SERVER_BASE_URL"]!)/api/v1/\(path)")!
         var request = URLRequest(url: url)
@@ -18,7 +18,7 @@ class SurveyServer: InquiryService  {
             .map { $0.data }
             .decode(type: Inquiry.self, decoder: JSONDecoder())
             .handleEvents(receiveCompletion: { completion in
-                if case .failure(_) = completion {
+                if case .failure = completion {
                     print("Network request failed")
                 }
             })
