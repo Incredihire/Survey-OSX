@@ -30,8 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
                                                 redirectURL: URL(string: redirectURL)!,
                                                 responseType: OIDResponseTypeCode,
                                                 additionalParameters: nil)
+        let window = NSApplication.shared.keyWindow!
         self.currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request,
-                                                               presenting: NSApplication.shared.keyWindow!) { authState, error in
+                                                               presenting: window) { authState, error in
             if let authState = authState {
                 self.setAuthState(authState)
             } else {
