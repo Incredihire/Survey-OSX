@@ -119,38 +119,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, OIDAuthStateChangeDelegate {
             }
         }
     }
-    
-    func refreshTokens() {
-        if let authState = self.authState {
-            let currentAccessToken: String? = authState.lastTokenResponse?.accessToken
-            let currentIdToken: String? = authState.lastTokenResponse?.idToken
-            authState.performAction() { (accessToken, idToken, error) in
-                if error != nil  {
-                    self.logMessage("Error fetching fresh tokens: \(error?.localizedDescription ?? "ERROR")")
-                    return
-                }
-                guard let accessToken = accessToken else {
-                    self.logMessage("Error getting accessToken")
-                    return
-                }
-
-                if currentAccessToken != accessToken {
-                    self.logMessage("Access token was refreshed automatically")
-                } else {
-                    self.logMessage("Access token was fresh and not updated")
-                }
-
-                guard let idToken = idToken else {
-                    self.logMessage("Error getting idToken")
-                    return
-                }
-                if currentIdToken != idToken {
-                    self.logMessage("ID token was refreshed automatically")
-                } else {
-                    self.logMessage("ID token was fresh and not updated")
-                }
-           }
-        }
-    }
 }
 

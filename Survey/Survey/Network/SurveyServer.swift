@@ -1,8 +1,7 @@
 import AppKit
 import Combine
-class SurveyServer: InquiryService  {
+class SurveyServer: InquiryService  {    
     private func getRequest(path: String) -> URLRequest {
-        AppDelegate.instance.refreshTokens()
         let url = URL(string: "\(ProcessInfo.processInfo.environment["API_SERVER_BASE_URL"]!)/api/v1/\(path)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
