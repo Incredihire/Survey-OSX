@@ -24,6 +24,12 @@ Open the .xcodeproj or .xcworkspace file in Xcode by double-clicking it or using
 bash
 Copy code
 open YourProject.xcodeproj
+4. Configure OpenID Connect by editing the /Survey/Survey.xcodeproj/project.pbxproj file and replacing the Target -> Build Setting -> User Defined variables below with the proper values supplied by the OIDC provider (i.e. Google Auth)
+    - OIDC_AUTHORIZATION_ENDPOINT = "https://accounts.google.com/o/oauth2/v2/auth";
+    - OIDC_CLIENT_ID = "0123456789012-abcdef3456g7hi89jk0lm12nop34qr5s.apps.googleusercontent.com";
+    - OIDC_ISSUER = "https://accounts.google.com";
+    - OIDC_REDIRECT_URL = "com.googleusercontent.apps.0123456789012-abcdef3456g7hi89jk0lm12nop34qr5s:/auth/callback";
+
 
 ##Xcode Development Instructions
 1. Build the Project
