@@ -13,7 +13,10 @@ class SurveyServer: InquiryService {
         return request
     }
     func loadInquiry() -> AnyPublisher<Inquiry, Error> {
-        let request = getRequest(path: "inquiries/current")
+        var timezone: String {
+            TimeZone.current.identifier.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        }
+        let request = getRequest(path: "inquiries/current?tz=\(timezone)")
         return URLSession.shared.dataTaskPublisher(for: request)
             .map { $0.data }
             .decode(type: Inquiry.self, decoder: JSONDecoder())
