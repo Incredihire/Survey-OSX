@@ -19,11 +19,14 @@ Navigate to the project directory:
 bash
 Copy code
 cd your-project-folder
-3. Open the Project in Xcode
+2. Open the Project in Xcode
 Open the .xcodeproj or .xcworkspace file in Xcode by double-clicking it or using:
 bash
 Copy code
 open YourProject.xcodeproj
+3. Configure OpenID Connect by modifying the Survey -> Target -> Build Setting -> User Defined variables OIDC_AUTHORIZATION_ENDPOINT, OIDC_CLIENT_ID, OIDC_ISSUER, and OIDC_REDIRECT_URL with the proper values from an OIDC provider for both Debug and Release environments.
+4. Configure the baxckend API connection by modifying the Survey -> Target -> Build Setting -> User Defined variable API_SERVER_BASE_URL with the proper values for both Debug and Release environments.
+
 
 ##Xcode Development Instructions
 1. Build the Project

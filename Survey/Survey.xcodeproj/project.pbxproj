@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078EA0112D71A98D00BC347C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EA0102D71A98D00BC347C /* AppDelegate.swift */; };
+		078EA0192D73799100BC347C /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 078EA0182D73799100BC347C /* AppAuth */; };
+		079930312D6FD057007D0D09 /* SurveyServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079930302D6FD049007D0D09 /* SurveyServer.swift */; };
 		C9377D242CA24EBC00D51356 /* InquiryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D232CA24EBC00D51356 /* InquiryModel.swift */; };
 		C9377D262CA24EF900D51356 /* SurveyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D252CA24EF900D51356 /* SurveyModel.swift */; };
 		C9377D292CA24F2C00D51356 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9377D282CA24F2C00D51356 /* MockServer.swift */; };
@@ -43,7 +46,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		07291B0A2D5DB0A700A2F656 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		078EA0102D71A98D00BC347C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		079930302D6FD049007D0D09 /* SurveyServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyServer.swift; sourceTree = "<group>"; };
 		C9377D232CA24EBC00D51356 /* InquiryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryModel.swift; sourceTree = "<group>"; };
 		C9377D252CA24EF900D51356 /* SurveyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyModel.swift; sourceTree = "<group>"; };
 		C9377D282CA24F2C00D51356 /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
@@ -70,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078EA0192D73799100BC347C /* AppAuth in Frameworks */,
 				C99701DC2C9A4893009A3039 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +122,7 @@
 		C9377D272CA24F1C00D51356 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				079930302D6FD049007D0D09 /* SurveyServer.swift */,
 				C9377D282CA24F2C00D51356 /* MockServer.swift */,
 				C9377D2D2CA24F9200D51356 /* db.json */,
 				C9E0035F2CA3A603009E6DD5 /* InquiryService.swift */,
@@ -122,11 +141,11 @@
 		C99701A02C9A468F009A3039 = {
 			isa = PBXGroup;
 			children = (
+				078EA0102D71A98D00BC347C /* AppDelegate.swift */,
 				C99701AB2C9A468F009A3039 /* Survey */,
 				C99701BF2C9A4690009A3039 /* SurveyTests */,
 				C99701C92C9A4690009A3039 /* SurveyUITests */,
 				C99701AA2C9A468F009A3039 /* Products */,
-				C99701DA2C9A488C009A3039 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,13 +192,6 @@
 			path = SurveyUITests;
 			sourceTree = "<group>";
 		};
-		C99701DA2C9A488C009A3039 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C99701E32C9A6C03009A3039 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +211,7 @@
 				C99701A52C9A468F009A3039 /* Sources */,
 				C99701A62C9A468F009A3039 /* Frameworks */,
 				C99701A72C9A468F009A3039 /* Resources */,
+				07291B0A2D5DB0A700A2F656 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -207,6 +220,7 @@
 			name = Survey;
 			packageProductDependencies = (
 				C99701DB2C9A4893009A3039 /* SwiftUIX */,
+				078EA0182D73799100BC347C /* AppAuth */,
 			);
 			productName = Survey;
 			productReference = C99701A92C9A468F009A3039 /* Survey.app */;
@@ -259,7 +273,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					C99701A82C9A468F009A3039 = {
 						CreatedOnToolsVersion = 15.4;
@@ -285,6 +299,7 @@
 			mainGroup = C99701A02C9A468F009A3039;
 			packageReferences = (
 				C99701D92C9A47F6009A3039 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				078EA0172D73799100BC347C /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
 			);
 			productRefGroup = C99701AA2C9A468F009A3039 /* Products */;
 			projectDirPath = "";
@@ -329,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078EA0112D71A98D00BC347C /* AppDelegate.swift in Sources */,
 				C99701E02C9A4F21009A3039 /* SurveyView.swift in Sources */,
 				C9377D262CA24EF900D51356 /* SurveyModel.swift in Sources */,
 				C9377D292CA24F2C00D51356 /* MockServer.swift in Sources */,
@@ -337,6 +353,7 @@
 				C99701AD2C9A468F009A3039 /* SurveyApp.swift in Sources */,
 				C9E003602CA3A603009E6DD5 /* InquiryService.swift in Sources */,
 				C9377D242CA24EBC00D51356 /* InquiryModel.swift in Sources */,
+				079930312D6FD057007D0D09 /* SurveyServer.swift in Sources */,
 				C9377D2C2CA24F6E00D51356 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +504,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
@@ -495,6 +513,7 @@
 		C99701D12C9A4690009A3039 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_SERVER_BASE_URL = "http://localhost";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Survey/Survey.entitlements;
@@ -502,8 +521,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Survey\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -512,8 +533,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
+				OIDC_AUTHORIZATION_ENDPOINT = "https://accounts.google.com/o/oauth2/v2/auth";
+				OIDC_CLIENT_ID = "233290826498-31030ajp2qfj1fjff7bti1og6q657l3j.apps.googleusercontent.com";
+				OIDC_ISSUER = "https://accounts.google.com";
+				OIDC_REDIRECT_URL = "com.googleusercontent.apps.233290826498-31030ajp2qfj1fjff7bti1og6q657l3j:/auth/callback";
 				PRODUCT_BUNDLE_IDENTIFIER = "Incredihire-LLC.Survey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = macosx;
@@ -526,6 +551,7 @@
 		C99701D22C9A4690009A3039 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_SERVER_BASE_URL = "https://survey.incredihire.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Survey/Survey.entitlements;
@@ -533,8 +559,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Survey\"";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = NO;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -543,13 +573,20 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
+				OIDC_AUTHORIZATION_ENDPOINT = "https://accounts.google.com/o/oauth2/v2/auth";
+				OIDC_CLIENT_ID = "233290826498-31030ajp2qfj1fjff7bti1og6q657l3j.apps.googleusercontent.com";
+				OIDC_ISSUER = "https://accounts.google.com";
+				OIDC_REDIRECT_URL = "com.googleusercontent.apps.233290826498-31030ajp2qfj1fjff7bti1og6q657l3j:/auth/callback";
 				PRODUCT_BUNDLE_IDENTIFIER = "Incredihire-LLC.Survey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -670,6 +707,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		078EA0172D73799100BC347C /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openid/AppAuth-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.6;
+			};
+		};
 		C99701D92C9A47F6009A3039 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
@@ -681,6 +726,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		078EA0182D73799100BC347C /* AppAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 078EA0172D73799100BC347C /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
+			productName = AppAuth;
+		};
 		C99701DB2C9A4893009A3039 /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C99701D92C9A47F6009A3039 /* XCRemoteSwiftPackageReference "SwiftUIX" */;

@@ -1,18 +1,18 @@
 import Foundation
 import Combine
 class MockServer: InquiryService {
-    func loadInquiries() -> AnyPublisher<[Inquiry], Error> {
+    func loadInquiry() -> AnyPublisher<Inquiry, Error> {
         guard let url = Bundle.main.url(forResource: "db", withExtension: "json") else {
             let error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "File not found"])
-            Logger.shared.log(error: error, customMessage: "Failed to load inquiries")
+            print("Failed to load inquiries")
             return Fail(error: error).eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
-            .decode(type: [Inquiry].self, decoder: JSONDecoder())
+            .decode(type: Inquiry.self, decoder: JSONDecoder())
             .handleEvents(receiveCompletion: { completion in
-                if case .failure(let error) = completion {
-                    Logger.shared.log(error: error, customMessage: "Network request failed")
+                if case .failure = completion {
+                    print("Network request failed")
                 }
             })
             .eraseToAnyPublisher()
